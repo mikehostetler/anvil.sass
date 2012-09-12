@@ -1,8 +1,6 @@
 var sass = require('node-sass');
 
 var sassCompilerFactory = function( _, anvil ) {
-	var compile = _.compose( marked, showdown );
-
 	return anvil.plugin( {
 		name: "anvil.sass",
 		
@@ -15,7 +13,12 @@ var sassCompilerFactory = function( _, anvil ) {
 		compile: function( content, done ) {
 			try {
 				sass.render( content, function( err, css ) {
-					done( css );
+					if( err === null) {
+						done( css );
+					}
+					else {
+						done( "", "\nanvil.sass compiler error: " + err );
+					}
 				});
 			} catch ( error ) {
 				done( "", error );
@@ -29,4 +32,4 @@ var sassCompilerFactory = function( _, anvil ) {
 	} );
 };
 
-module.exports = markdownCompilerFactory;
+module.exports = sassCompilerFactory;
