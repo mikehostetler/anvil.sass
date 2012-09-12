@@ -4,8 +4,7 @@
   "description": "SASS/SCSS compiler plugin for anvil.js",
   "version": "0.0.1",
   "contributors": [
-    { "name": "Alex Robson", "email": "alex@sharplearningcurve.com" },
-    { "name": "Eli Perelman", "email": "eli@eliperelman.com"}
+    { "name": "Alex Robson", "email": "alex@sharplearningcurve.com" }
   ],
   "repository": {
     "type": "git",
@@ -16,8 +15,11 @@
   },
   "main": "./lib/plugin.js",
   "dependencies": {
-    "node-sass": ""
+    "node-sass": ">=0.2.4"
   },
-  "devDependencies": { "anvil.js" : "~0.8"},
+  "devDependencies": { 
+		"anvil.js": ">=0.8.4",
+		"should": "~1.1"
+	},
   "optionalDependencies": {}
 }
