@@ -34,14 +34,15 @@ harness.expectFile( "./lib/test.css",
 );
 */
 
-//harness.addFile( "./src/test.sass", ".content { color: red; }" );
-//harness.expectFile( "./lib/test.css", ".content { color: red; }" );
+harness.addFile( "./src/test.sass", ".content { color: red; }" );
+harness.expectFile( "./lib/test.css", ".content { color: red; }" );
 
 describe( "when compiling sass", function() {
 
 	before( function( done ) {
 		harness.build(
 			function( x, y ) {
+				console.log(x, y);
 				y.should.equal( x );
 			},
 			function( results ) {

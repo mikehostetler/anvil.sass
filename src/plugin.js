@@ -13,6 +13,7 @@ var sassCompilerFactory = function( _, anvil ) {
 		compile: function( content, done ) {
 			try {
 				sass.render( content, function( err, css ) {
+					done('TEST - Mike');
 					if( err === null) {
 						done( css );
 					}
